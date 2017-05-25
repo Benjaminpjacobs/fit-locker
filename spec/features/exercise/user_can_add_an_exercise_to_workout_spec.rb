@@ -8,15 +8,16 @@ RSpec.feature "As a user" do
   it "can add to workout" do
     workout = create(:workout)
     user = workout.user
+    CardioActivity.create!(name: "Running")
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit user_workout_path(user, workout)
     click_on "Add Exercise"
     select "Running"
-    select "25:00"
+    fill_in "Duration", with: "25:26"
     fill_in "Distance", with: "3.1"
-    click_on "Create Exercise"
+    click_on "Add Exercise"
 
     expect(page).to have_content(workout.name)
     expect(page).to have_content("Running")

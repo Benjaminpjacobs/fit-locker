@@ -1,3 +1,7 @@
 =@workout.name
 =@workout.category.capitalize
-=link_to "Add Exercise", new_user_workout_exercise_path(current_user, @workout)
+-@workout.cardio_exercises.each do |exercise|
+  =exercise.cardio_activity.name
+  =exercise.duration
+  =exercise.distance
+=link_to "Add Exercise", new_user_workout_cardio_exercise_path(current_user, @workout)
