@@ -5,7 +5,6 @@ class CardioExercisesController < ApplicationController
   end
 
   def create
-    binding.pry
     workout = Workout.find(params[:workout_id])
     cardio_exercise = workout.cardio_exercises.new(cardio_params)
     if cardio_exercise.save

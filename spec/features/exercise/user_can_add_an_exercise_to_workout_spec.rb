@@ -21,7 +21,7 @@ RSpec.feature "As a user" do
 
     expect(page).to have_content(workout.name)
     expect(page).to have_content("Running")
-    expect(page).to have_content("25:00")
+    expect(page).to have_content("25:26")
     expect(page).to have_content("3.1")
   end
 
