@@ -1,2 +1,0 @@
-class CardioExercise < ApplicationRecord
-end
