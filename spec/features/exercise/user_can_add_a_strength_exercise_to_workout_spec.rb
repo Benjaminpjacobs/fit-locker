@@ -24,7 +24,7 @@ RSpec.feature "As a user" do
     click_on "Add Set"
     save_and_open_page
     expect(page).to have_content("Bench Press")
-    expect(page).to have_content("125lbs")
+    expect(page).to have_content("125.0 lbs")
   end
 
 end

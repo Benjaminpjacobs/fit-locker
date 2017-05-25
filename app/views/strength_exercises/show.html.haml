@@ -4,12 +4,17 @@
       %h2=@exercise.strength_activity.name
       -# %h4=@workout.category.capitalize
       %div.list-group
-        -@exercise.lift_sets.each do |set|
+        -@exercise.lift_sets.each_with_index do |set, i|
+          %h3.list-group-item-heading
+            Set
+            =(i+1)
           .list-group-item-text
-            %strong Reps
-            =set.reps
-            %strong Weight
-            =set.weight
-            lbs
+            %p  
+              %strong Reps
+              =set.reps
+            %p  
+              %strong Weight
+              =set.weight
+              lbs
         = link_to "Add Set", new_user_workout_strength_exercise_lift_set_path(@workout.user, @workout, @exercise, @exercise.strength_activity)
   
