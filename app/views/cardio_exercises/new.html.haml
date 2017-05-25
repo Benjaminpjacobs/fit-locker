@@ -6,7 +6,7 @@
         =form_for([current_user, @workout, @cardio_exercise]) do |f|
           %div.form-group
             =f.label :duration
-            =f.time_field :duration
+            =f.text_field :duration
           %div.form-group  
             =f.label :distance
             =f.text_field :distance

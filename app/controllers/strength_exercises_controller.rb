@@ -5,19 +5,24 @@ class StrengthExercisesController < ApplicationController
   end
 
   def create
-    # workout = Workout.find(params[:workout_id])
-    # cardio_exercise = workout.cardio_exercises.new(cardio_params)
-    # if cardio_exercise.save
-    #   flash[:success] = "Exercise Added"
-    #   redirect_to user_workout_path(workout.user, workout)
-    # else
-    #   render :new
-    # end
+    workout = Workout.find(params[:workout_id])
+    strength_exercise = workout.strength_exercises.new(strength_params)
+    if strength_exercise.save
+      flash[:success] = "Exercise Added"
+      redirect_to user_workout_strength_exercise_path(workout.user, workout, strength_exercise)
+    else
+      render :new
+    end
+  end
+
+  def show
+    @workout = Workout.find(params[:workout_id])
+    @exercise = StrengthExercise.find(params[:id])
   end
 
   private
 
-    def cardio_params
-      # params.require(:cardio_exercise).permit(:duration, :distance, :cardio_activity_id)
+    def strength_params
+      params.require(:strength_exercise).permit(:strength_activity_id)
     end
 end

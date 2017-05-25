@@ -4,5 +4,6 @@ class Workout < ApplicationRecord
   validates :category, presence: :true
   belongs_to :user
   has_many :cardio_exercises
+  has_many :strength_exercises
   enum category: [:cardio, :strength]
 end

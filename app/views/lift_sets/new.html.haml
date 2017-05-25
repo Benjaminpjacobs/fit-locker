@@ -1,0 +1,14 @@
+%div.container
+  %div.row
+    %div.col-md-6.text-center#login
+      %h2 Add Set
+      .form-horizontal
+        =form_for([current_user, @workout, @exercise, @lift_set]) do |f|
+          %div.form-group
+            =f.label :weight
+            =f.text_field :weight
+          %div.form-group  
+            =f.label :reps
+            =f.number_field :reps
+          %div.form-group  
+            %p=f.submit "Add Set"

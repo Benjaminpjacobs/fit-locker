@@ -1,0 +1,15 @@
+%div.container
+  %div.row
+    %div.form-group.col-md-4.col-md-offset-1
+      %h2=@exercise.strength_activity.name
+      -# %h4=@workout.category.capitalize
+      %div.list-group
+        -@exercise.lift_sets.each do |set|
+          .list-group-item-text
+            %strong Reps
+            =set.reps
+            %strong Weight
+            =set.weight
+            lbs
+        = link_to "Add Set", new_user_workout_strength_exercise_lift_set_path(@workout.user, @workout, @exercise, @exercise.strength_activity)
+  
