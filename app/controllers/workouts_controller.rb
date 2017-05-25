@@ -5,6 +5,6 @@ class WorkoutsController<ApplicationController
   end
 
   def new
-    
+    @workout = Workout.new
   end
 end
