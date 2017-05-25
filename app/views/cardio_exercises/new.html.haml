@@ -1,7 +1,16 @@
-=form_for([current_user, @workout, @cardio_exercise]) do |f|
-  =f.label :duration
-  =f.time_field :duration
-  =f.label :distance
-  =f.text_field :distance
-  =f.collection_select :cardio_activity_id, CardioActivity.all, :id, :name
-  =f.submit "Add Exercise"
+%div.container
+  %div.row
+    %div.col-md-6.text-center#login
+      %h2 Add Exercise
+      .form-horizontal
+        =form_for([current_user, @workout, @cardio_exercise]) do |f|
+          %div.form-group
+            =f.label :duration
+            =f.time_field :duration
+          %div.form-group  
+            =f.label :distance
+            =f.text_field :distance
+          %div.form-group  
+            =f.collection_select :cardio_activity_id, CardioActivity.all, :id, :name
+          %div.form-group  
+            %p=f.submit "Add Exercise"

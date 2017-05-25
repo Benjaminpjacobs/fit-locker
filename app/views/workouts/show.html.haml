@@ -1,7 +1,12 @@
-=@workout.name
-=@workout.category.capitalize
--@workout.cardio_exercises.each do |exercise|
-  =exercise.cardio_activity.name
-  =exercise.duration
-  =exercise.distance
-=link_to "Add Exercise", new_user_workout_cardio_exercise_path(current_user, @workout)
+%div.container
+  %div.row
+    %div.form-group.col-md-4.col-md-offset-1
+      %h2=@workout.name
+      %h4=@workout.category.capitalize
+      %div.list-group
+        -@workout.cardio_exercises.each do |exercise|
+          %h3.list-group-item-heading=exercise.cardio_activity.name
+          .list-group-item-text
+            =exercise.duration
+            =exercise.distance
+      %p=link_to "Add Exercise", new_user_workout_cardio_exercise_path(current_user, @workout)

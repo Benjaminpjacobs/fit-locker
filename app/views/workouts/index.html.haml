@@ -1,1 +1,15 @@
-=link_to "Add New Workout", new_user_workout_path(current_user)
+%div.container
+  %div.row
+    %div.col-md-4.col-md-offset-1
+      %h3 Workouts
+      %div.list-group
+      - @workouts.each do |workout|
+        %div.list-group-item
+          %h3.list-group-item-heading= link_to "#{workout.name} - #{workout.category.capitalize}", user_workout_path(current_user, workout)
+          -# = link_to "Edit", edit_company_path(company)
+          -# = link_to "Delete", company_path(company), method: "delete"
+      %br
+      =link_to "Add New Workout", new_user_workout_path(current_user)
+
+
+

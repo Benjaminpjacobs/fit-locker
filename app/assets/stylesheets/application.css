@@ -13,3 +13,45 @@
  *= require_tree .
  *= require_self
  */
+
+
+/*
+ #########
+ Login
+ #########
+ */
+
+#login {
+    float: none;
+    margin: 10% auto;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+
+/*
+ #########
+  navbar
+ #########
+ */
+
+
+/*
+ #########
+ Flash
+ #########
+ */
+
+#flash {
+    float: none;
+    margin: 5px, auto;
+    display: inline-block;
+    border-bottom: .5px solid;
+    border-left: .5px solid;
+    border-right: .5px solid;
+    border-radius: 5px;
+}
+
+@import "bootstrap-sprockets";
+@import "bootstrap";

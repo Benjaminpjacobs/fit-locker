@@ -1,0 +1,22 @@
+%nav.navbar.navbar-default
+%div.container-fluid
+  %div.navbar-header.navbar-brand 
+
+    Welcome
+    =current_user.username
+    =link_to "Logout", logout_path, method: :delete
+
+  %ul.nav.navbar-nav.navbar-right
+    %li.dropdown
+      -# %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+      -#   Jobs
+      -#   %span.caret
+      -# %ul.dropdown-menu{:role => "menu"}
+      -#   %li
+      -#     %a{:href => jobs_path(sorted: "location")} Sorted By Location
+      -#   %li
+      -#     %a{:href => jobs_path(sorted: "level_of_interest")} Sorted By Interest
+
+  %ul.nav.navbar-nav.navbar-right
+    %li=link_to "Dashboard", user_dashboard_index_path(current_user)
+    %li=link_to "Workouts", user_workouts_path(current_user)

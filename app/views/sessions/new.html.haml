@@ -1,8 +1,14 @@
-=form_for(:session, url: "/login" ) do |f|
-  =f.label :email
-  =f.text_field :email
-  =f.label :password
-  =f.text_field :password
-  =f.submit "Login"
+%div.container
+  %div.row
+    %div.col-md-6.text-center#login
+      %h2 Login
+      .form-horizontal
+        =form_for(:session, url: "/login" ) do |f|
+          %div.form-group
+            %p=f.label :email
+            %p=f.text_field :email
+            %p=f.label :password
+            %p=f.text_field :password
+            %p=f.submit "Login"
 
-=link_to "Create New User", new_user_path
+        =link_to "Create New User", new_user_path

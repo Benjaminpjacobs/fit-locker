@@ -1,10 +1,20 @@
-=form_for @user do |f|
-  =f.label :email
-  =f.text_field :email
-  =f.label :first_name
-  =f.text_field :first_name
-  =f.label :last_name
-  =f.text_field :last_name
-  =f.label :password
-  =f.text_field :password
-  =f.submit "Create User"
+%div.container
+  %div.row
+    %div.col-md-6.text-center#login
+      %h2 Create New User
+      .form-
+        =form_for @user do |f|
+          %div.form-group
+            %p=f.label :email
+            %p=f.text_field :email
+          %div.form-group  
+            %p=f.label :first_name
+            %p=f.text_field :first_name
+          %div.form-group  
+            %p=f.label :last_name
+            %p=f.text_field :last_name
+          %div.form-group  
+            %p=f.label :password
+            %p=f.text_field :password
+          %div.form-group  
+            %p=f.submit "Create User"
