@@ -17,5 +17,15 @@ class WorkoutsController<ApplicationController
     end
   end
 
-  
+  def show
+    @workout = Workout.find(params[:id])
+  end
+
+    private
+
+    def workout_params
+      result = params.require(:workout).permit(:name, :date, :category)
+      result[:category] = result[:category].to_i
+      result
+    end
 end
