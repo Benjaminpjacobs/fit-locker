@@ -1,0 +1,7 @@
+=form_for([current_user, @workout, @exercise]) do |f|
+  =f.label :name
+  =f.text_field :name
+  =f.label :date
+  =f.date_select :date
+  =f.select :category, [["Cardio", 0], ["Strength", 1]]
+  =f.submit

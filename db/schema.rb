@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170525130003) do
+ActiveRecord::Schema.define(version: 20170525132541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cardio_activities", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cardio_exercises", force: :cascade do |t|
+    t.integer "duration"
+    t.float "distance"
+    t.bigint "cardio_activity_id"
+    t.index ["cardio_activity_id"], name: "index_cardio_exercises_on_cardio_activity_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
@@ -35,5 +48,6 @@ ActiveRecord::Schema.define(version: 20170525130003) do
     t.index ["user_id"], name: "index_workouts_on_user_id"
   end
 
+  add_foreign_key "cardio_exercises", "cardio_activities"
   add_foreign_key "workouts", "users"
 end
