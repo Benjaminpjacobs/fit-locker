@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170525174908) do
+ActiveRecord::Schema.define(version: 20170525185415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(version: 20170525174908) do
     t.bigint "workout_id"
     t.index ["cardio_activity_id"], name: "index_cardio_exercises_on_cardio_activity_id"
     t.index ["workout_id"], name: "index_cardio_exercises_on_workout_id"
+  end
+
+  create_table "lift_sets", force: :cascade do |t|
+    t.float "weight"
+    t.integer "reps"
+    t.bigint "strength_exercise_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["strength_exercise_id"], name: "index_lift_sets_on_strength_exercise_id"
   end
 
   create_table "muscle_groups", force: :cascade do |t|
@@ -78,6 +87,7 @@ ActiveRecord::Schema.define(version: 20170525174908) do
   add_foreign_key "activity_muscle_groups", "strength_activities"
   add_foreign_key "cardio_exercises", "cardio_activities"
   add_foreign_key "cardio_exercises", "workouts"
+  add_foreign_key "lift_sets", "strength_exercises"
   add_foreign_key "strength_exercises", "strength_activities"
   add_foreign_key "workouts", "users"
 end
