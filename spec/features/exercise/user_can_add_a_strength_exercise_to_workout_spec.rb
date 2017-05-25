@@ -6,10 +6,24 @@ RSpec.feature "As a user" do
   end
   
   it "can add strength activity to workout" do
-    workout = create(:workout)
+    workout = create(:workout, category: 1)
     user = workout.user
-    CardioActivity.create!(name: "Running")
+    # CardioActivity.create!(name: "Running")
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
+    visit user_workout_path(user, workout)
+    click_on "Add Exercise"
+    select "Bench Press"
+    expect(page).to eq(user_workout_strength_exercise)
+    expect(page).to have_content("Bench Press")
+    click_on "Add Set"
+    fill_in "weight", with: "125"
+    fill_in "reps", with: "10"
+    click_link "Submit Set"
+
+    expect(page).to eq(user_workout_strength_exercise)
+    expect(page).to have_content("Bench Press")
+    expect(page).to have_content("125lbs")
   end
 
 end

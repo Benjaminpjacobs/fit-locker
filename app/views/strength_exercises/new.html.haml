@@ -1,0 +1,10 @@
+%div.container
+  %div.row
+    %div.col-md-6.text-center#login
+      %h2 Add Exercise
+      .form-horizontal
+        =form_for([current_user, @workout, @strength_exercise]) do |f|
+          %div.form-group  
+            =f.collection_select :strength_activity_id, StrengthActivity.all, :id, :name
+          %div.form-group  
+            %p=f.submit "Add Exercise"

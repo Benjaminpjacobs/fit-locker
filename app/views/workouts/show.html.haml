@@ -9,4 +9,7 @@
           .list-group-item-text
             =exercise.duration
             =exercise.distance
-      %p=link_to "Add Exercise", new_user_workout_cardio_exercise_path(current_user, @workout)
+      -if @workout.cardio?
+        %p=link_to "Add Exercise", new_user_workout_cardio_exercise_path(current_user, @workout)
+      -else
+        %p=link_to "Add Exercise", new_user_workout_strength_exercise_path(current_user, @workout)
