@@ -9,19 +9,19 @@ RSpec.feature "As a user" do
     workout = create(:workout)
     user = workout.user
 
-  #   allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-  #   visit user_workout_path(user, workout)
-  #   click_on "Add Exercise"
-  #   select "Running"
-  #   select "25:00"
-  #   fill_in "Distance", with: "3.1"
-  #   click_on "Create Exercise"
+    visit user_workout_path(user, workout)
+    click_on "Add Exercise"
+    select "Running"
+    select "25:00"
+    fill_in "Distance", with: "3.1"
+    click_on "Create Exercise"
 
-  #   expect(page).to have_content(workout.name)
-  #   expect(page).to have_content("Running")
-  #   expect(page).to have_content("25:00")
-  #   expect(page).to have_content("3.1")
+    expect(page).to have_content(workout.name)
+    expect(page).to have_content("Running")
+    expect(page).to have_content("25:00")
+    expect(page).to have_content("3.1")
   end
 
 end
