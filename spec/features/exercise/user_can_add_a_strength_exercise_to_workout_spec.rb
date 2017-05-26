@@ -15,13 +15,12 @@ RSpec.feature "As a user" do
     click_on "Add Exercise"
     
     select "Bench Press"
-    click_on "Add Exercise"
+    click_on "Create Strength exercise"
     expect(page).to have_content("Bench Press")
-   
     click_on "Add Set"
     fill_in "Weight", with: "125"
     fill_in "Reps", with: "10"
-    click_on "Add Set"
+    click_on "Create Lift set"
 
     expect(page).to have_content("Bench Press")
     expect(page).to have_content("125.0 lbs")

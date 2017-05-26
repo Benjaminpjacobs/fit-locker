@@ -22,7 +22,8 @@
 
       -else
         -@workout.strength_exercises.each do |exercise|
-          %h3.list-group-item-heading=exercise.strength_activity.name
+          %h3.list-group-item-heading
+            =link_to exercise.strength_activity.name, user_workout_strength_exercise_path(current_user, @workout, exercise)
           .list-group-item-text
             -exercise.lift_sets.each_with_index do |lift_set, i|
               %h4.list-group-item-heading
@@ -36,6 +37,7 @@
                 %p 
                   %strong Reps:
                   =lift_set.reps
-
+          = link_to "Edit",  edit_user_workout_strength_exercise_path(current_user, @workout, exercise)
+          = link_to "Delete", user_workout_strength_exercise_path(current_user, @workout, exercise), method: "delete"
 
         %p=link_to "Add Exercise", new_user_workout_strength_exercise_path(current_user, @workout)

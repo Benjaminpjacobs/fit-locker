@@ -16,5 +16,7 @@
               %strong Weight
               =set.weight
               lbs
+            = link_to "Edit",  edit_user_workout_strength_exercise_lift_set_path(current_user, @workout, @exercise, set)
+            =link_to "Delete", user_workout_strength_exercise_lift_set_path(current_user, @workout, @exercise, set), method: "delete"
         = link_to "Add Set", new_user_workout_strength_exercise_lift_set_path(@workout.user, @workout, @exercise, @exercise.strength_activity)
   

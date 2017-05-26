@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :workouts do  
       resources :cardio_exercises
       resources :strength_exercises do
-        resources :lift_sets, only: [:new, :create]
+        resources :lift_sets
       end
       
       
