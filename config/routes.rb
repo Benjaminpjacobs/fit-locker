@@ -6,16 +6,13 @@ Rails.application.routes.draw do
       resources :strength_exercises do
         resources :lift_sets
       end
-      
-      
     end
-    
-  
-    
-    
-    
-
   end
+
+  namespace :admin do 
+    resources :users, only: [:index]
+  end
+  
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
   delete '/login', to: "sessions#destroy"

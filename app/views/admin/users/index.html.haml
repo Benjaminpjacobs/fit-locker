@@ -1,0 +1,22 @@
+%div.container
+  %div.row
+    %div.col-md-4.col-md-offset-1
+      %h3 All Users:
+      .table
+        %thead.thead-default
+          %tr
+            %th Firstname
+            %th Lastname
+            %th Email
+            %th Status
+        %tbody   
+          -@users.each do |user|
+            %tr
+              %td=user.first_name
+              %td=user.last_name
+              %td=user.email
+              %td=user.role
+                
+
+
+
