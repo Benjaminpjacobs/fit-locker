@@ -5,7 +5,4 @@ class User < ApplicationRecord
   has_many :workouts
   enum role: [:user, :admin]
 
-  def to_param
-    "#{first_name}-#{last_name}"
-  end
 end

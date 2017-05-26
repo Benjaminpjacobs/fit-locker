@@ -1,0 +1,21 @@
+%div.container
+  %div.row
+    %div.col-md-6.text-center#login
+      %h2 Create New User
+      .form-
+        =form_for([:admin, @user]) do |f|
+          %div.form-group
+            %p=f.label :email
+            %p=f.text_field :email
+          %div.form-group  
+            %p=f.label :first_name
+            %p=f.text_field :first_name
+          %div.form-group  
+            %p=f.label :last_name
+            %p=f.text_field :last_name
+          %div.form-group  
+            %select{ :name => "user[role]" }
+              %option{:value => 0}= "User"
+              %option{:value => 1}= "Admin"      
+          %div.form-group  
+            %p=f.submit
