@@ -1,4 +1,5 @@
 class WorkoutsController<ApplicationController
+  before_action :set_workout, only: [:show, :edit, :update, :destroy]
 
   def index
     @workouts = current_user.workouts
@@ -18,15 +19,12 @@ class WorkoutsController<ApplicationController
   end
 
   def show
-    @workout = Workout.find(params[:id])
   end
 
   def edit
-    @workout = Workout.find(params[:id])
   end
 
   def update
-    @workout = Workout.find(params[:id])
     @workout.update(workout_params)
     if @workout.save
       flash[:success] = "#{@workout.name} udated!"
@@ -37,7 +35,6 @@ class WorkoutsController<ApplicationController
   end
 
   def destroy
-    @workout = Workout.find(params[:id])
     @workout.destroy
     redirect_to user_workouts_path(current_user)
   end
@@ -48,5 +45,9 @@ class WorkoutsController<ApplicationController
       result = params.require(:workout).permit(:name, :date, :category)
       result[:category] = result[:category].to_i
       result
+    end
+
+    def set_workout
+      @workout = Workout.find(params[:id])
     end
 end
