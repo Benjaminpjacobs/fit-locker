@@ -4,12 +4,38 @@
       %h2=@workout.name
       %h4=@workout.category.capitalize
       %div.list-group
+      -if @workout.cardio?
         -@workout.cardio_exercises.each do |exercise|
           %h3.list-group-item-heading=exercise.cardio_activity.name
           .list-group-item-text
-            =exercise.duration
-            =exercise.distance
-      -if @workout.cardio?
+            %p
+              %strong Duration:
+              =exercise.duration
+            %p  
+              %strong Distance:
+              =exercise.distance
+              miles
+          = link_to "Edit",  edit_user_workout_cardio_exercise_path(current_user, @workout, exercise)
+          = link_to "Delete", user_workout_cardio_exercise_path(current_user, @workout, exercise), method: "delete"
+
         %p=link_to "Add Exercise", new_user_workout_cardio_exercise_path(current_user, @workout)
+
       -else
+        -@workout.strength_exercises.each do |exercise|
+          %h3.list-group-item-heading=exercise.strength_activity.name
+          .list-group-item-text
+            -exercise.lift_sets.each_with_index do |lift_set, i|
+              %h4.list-group-item-heading
+                Set 
+                =(i+1)
+              .list-group-item-text
+                %p 
+                  %strong Weight:
+                  =lift_set.weight
+                  lbs
+                %p 
+                  %strong Reps:
+                  =lift_set.reps
+
+
         %p=link_to "Add Exercise", new_user_workout_strength_exercise_path(current_user, @workout)

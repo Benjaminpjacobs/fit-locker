@@ -13,11 +13,12 @@ RSpec.feature "As a user" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit user_workout_path(user, workout)
+
     click_on "Add Exercise"
     select "Running"
     fill_in "Duration", with: "25:26"
     fill_in "Distance", with: "3.1"
-    click_on "Add Exercise"
+    click_on "Create Cardio exercise"
 
     expect(page).to have_content(workout.name)
     expect(page).to have_content("Running")
