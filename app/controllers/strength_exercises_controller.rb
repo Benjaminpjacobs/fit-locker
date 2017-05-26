@@ -1,33 +1,28 @@
 class StrengthExercisesController < ApplicationController
+  before_action :set_workout
+  before_action :set_strength_exercise, only: [:show, :edit, :update, :destroy]
+
   def new
-    @workout = Workout.find(params[:workout_id])
     @strength_exercise = StrengthExercise.new
   end
 
   def create
-    workout = Workout.find(params[:workout_id])
-    strength_exercise = workout.strength_exercises.new(strength_params)
+    strength_exercise = @workout.strength_exercises.new(strength_params)
     if strength_exercise.save
       flash[:success] = "Exercise Added"
-      redirect_to user_workout_strength_exercise_path(workout.user, workout, strength_exercise)
+      redirect_to user_workout_strength_exercise_path(@workout.user, @workout, strength_exercise)
     else
       render :new
     end
   end
 
   def show
-    @workout = Workout.find(params[:workout_id])
-    @exercise = StrengthExercise.find(params[:id])
   end
 
   def edit
-    @workout = Workout.find(params[:workout_id])
-    @strength_exercise = StrengthExercise.find(params[:id])
   end
 
   def update
-    @workout = Workout.find(params[:workout_id])
-    @strength_exercise = StrengthExercise.find(params[:id])
     @strength_exercise.update(strength_params)
     if @strength_exercise.save
       flash[:success] = "Exercise updated!"
@@ -38,8 +33,6 @@ class StrengthExercisesController < ApplicationController
   end
 
   def destroy
-    @workout = Workout.find(params[:workout_id])
-    @strength_exercise = StrengthExercise.find(params[:id])
     @strength_exercise.destroy
     redirect_to user_workout_path(current_user, @workout)
   end
@@ -48,5 +41,13 @@ class StrengthExercisesController < ApplicationController
 
     def strength_params
       params.require(:strength_exercise).permit(:strength_activity_id)
+    end
+
+    def set_workout
+      @workout = Workout.find(params[:workout_id])
+    end
+    
+    def set_strength_exercise
+      @strength_exercise = StrengthExercise.find(params[:id])
     end
 end
