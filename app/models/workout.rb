@@ -3,7 +3,7 @@ class Workout < ApplicationRecord
   validates :date, presence: :true
   validates :category, presence: :true
   belongs_to :user
-  has_many :cardio_exercises
-  has_many :strength_exercises
+  has_many :cardio_exercises, dependent: :destroy
+  has_many :strength_exercises, dependent: :destroy
   enum category: [:cardio, :strength]
 end

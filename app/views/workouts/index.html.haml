@@ -6,8 +6,9 @@
       - @workouts.each do |workout|
         %div.list-group-item
           %h3.list-group-item-heading= link_to "#{workout.name} - #{workout.category.capitalize}", user_workout_path(current_user, workout)
-          -# = link_to "Edit", edit_company_path(company)
-          -# = link_to "Delete", company_path(company), method: "delete"
+          %p= workout.date
+          = link_to "Edit", edit_user_workout_path(current_user, workout)
+          = link_to "Delete", user_workout_path(current_user, workout), method: "delete"
       %br
       =link_to "Add New Workout", new_user_workout_path(current_user)
 

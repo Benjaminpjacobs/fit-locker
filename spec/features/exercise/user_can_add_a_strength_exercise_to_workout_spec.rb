@@ -22,7 +22,7 @@ RSpec.feature "As a user" do
     fill_in "Weight", with: "125"
     fill_in "Reps", with: "10"
     click_on "Add Set"
-    save_and_open_page
+
     expect(page).to have_content("Bench Press")
     expect(page).to have_content("125.0 lbs")
   end

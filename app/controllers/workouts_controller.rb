@@ -21,6 +21,27 @@ class WorkoutsController<ApplicationController
     @workout = Workout.find(params[:id])
   end
 
+  def edit
+    @workout = Workout.find(params[:id])
+  end
+
+  def update
+    @workout = Workout.find(params[:id])
+    @workout.update(workout_params)
+    if @workout.save
+      flash[:success] = "#{@workout.name} udated!"
+      redirect_to user_workouts_path(current_user)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @workout = Workout.find(params[:id])
+    @workout.destroy
+    redirect_to user_workouts_path(current_user)
+  end
+
     private
 
     def workout_params

@@ -2,17 +2,20 @@
   %div.row
     %div.col-md-6.text-center#login
       %h2 Create Workout
-      .form-horizontal
-        =form_for([current_user, @workout]) do |f|
-          %div.form-group
-            =f.label :name
-            =f.text_field :name
-          %div.form-group  
-            =f.label :date
-            =f.date_select :date
-          %div.form-group  
-            =f.select :category, [["Cardio", 0], ["Strength", 1]]
-          %div.form-group  
-            %p=f.submit
+
+      =render partial: "form"
+
+      -# .form-horizontal
+      -#   =form_for([current_user, @workout]) do |f|
+      -#     %div.form-group
+      -#       =f.label :name
+      -#       =f.text_field :name
+      -#     %div.form-group  
+      -#       =f.label :date
+      -#       =f.date_select :date
+      -#     %div.form-group  
+      -#       =f.select :category, [["Cardio", 0], ["Strength", 1]]
+      -#     %div.form-group  
+      -#       %p=f.submit
 
   
