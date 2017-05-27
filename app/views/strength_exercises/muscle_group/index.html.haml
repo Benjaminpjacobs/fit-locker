@@ -1,0 +1,15 @@
+%div.page-header.text-center#center-header
+  %h1 Exercises
+%div.container
+  %div.row.text-center
+    %div.col-md-6.col-md-offset-3
+      %div.list-group
+        - @categories.each do |category|
+          %a{:href => user_workout_muscle_group_path(current_user, @workout, category)}
+            %div.list-group-item#workouts
+              %h3.list-group-item-heading
+                =category.name.upcase
+  -# %p.path=link_to "Add New Workout", new_user_workout_path(current_user)
+
+
+

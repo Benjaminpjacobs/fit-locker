@@ -1,0 +1,15 @@
+%div.page-header.text-center#center-header
+  %h3.text-center=@category.name.upcase
+%div.container
+  %div.row.text-center
+    %div.col-md-6.col-md-offset-3
+      %div.list-group
+        - @strength_activities.each do |activity|
+          %a{:href => "https://www.google.com/search?q=#{search_string(activity.name)}+demonstation", :target => '_blank'}
+            %div.list-group-item#workouts
+              %h3.list-group-item-heading
+                =activity.name.capitalize
+              =link_to "Add to Workout", user_workout_strength_exercises_path(strength_exercise: {strength_activity_id: activity.id}), method: :post
+
+
+

@@ -21,6 +21,7 @@
           = link_to "Delete", user_workout_cardio_exercise_path(current_user, @workout, exercise), method: "delete"
 
         %p=link_to "Add Exercise", new_user_workout_cardio_exercise_path(current_user, @workout)
+        %p=link_to "Browse Exercises", user_workout_cardio_activity_index_path(current_user, @workout)
 
       -else
         -@workout.strength_exercises.each do |exercise|
@@ -43,4 +44,5 @@
             = link_to "Edit",  edit_user_workout_strength_exercise_path(current_user, @workout, exercise)
             = link_to "Delete", user_workout_strength_exercise_path(current_user, @workout, exercise), method: "delete"
 
-        %p.path=link_to "Add Exercise", new_user_workout_strength_exercise_path(current_user, @workout)
+        %p=link_to "Add Exercise", new_user_workout_strength_exercise_path(current_user, @workout)
+        %p=link_to "Browse Exercises", user_workout_muscle_group_index_path(current_user, @workout)

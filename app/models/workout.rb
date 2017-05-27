@@ -7,8 +7,4 @@ class Workout < ApplicationRecord
   has_many :strength_exercises, dependent: :destroy
   enum category: [:cardio, :strength]
 
-
-  def to_param
-    "#{id}-#{category}"
-  end
 end

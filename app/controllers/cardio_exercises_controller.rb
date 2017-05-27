@@ -3,7 +3,7 @@ class CardioExercisesController < ApplicationController
   before_action :set_cardio_exercise, only: [:edit, :update, :destroy]
 
   def new
-    @cardio_exercise = CardioExercise.new
+    @cardio_exercise = CardioExercise.new(cardio_activity_id: params[:activity_id])
   end
 
   def create

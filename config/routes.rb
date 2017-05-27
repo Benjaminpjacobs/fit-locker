@@ -3,9 +3,11 @@ Rails.application.routes.draw do
     resources :dashboard, only: [:index]
     resources :workouts do  
       resources :cardio_exercises, except: [:index]
+        resources :cardio_activity, only: [:index], module: :cardio_exercises
       resources :strength_exercises do
         resources :lift_sets
       end
+      resources :muscle_group, only: [:index, :show], module: :strength_exercises
     end
   end
 

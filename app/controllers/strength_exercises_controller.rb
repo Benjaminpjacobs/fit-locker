@@ -3,7 +3,7 @@ class StrengthExercisesController < ApplicationController
   before_action :set_strength_exercise, only: [:show, :edit, :update, :destroy]
 
   def new
-    @strength_exercise = StrengthExercise.new
+    @strength_exercise = StrengthExercise.new(strength_activity_id: params[:activity_id])
   end
 
   def create
