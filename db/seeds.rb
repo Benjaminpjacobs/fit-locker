@@ -1,7 +1,17 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'csv'
+
+MuscleGroup.destroy_all
+StrengthActivity.destroy_all
+CardioActivity.destroy_all
+
+activities = CSV.open './db/csv/exercises.csv', headers:true, header_converters: :symbol
+activities.each do |row|
+  mg = MuscleGroup.find_or_create_by!(name: row[:category].capitalize)
+  if row[:cardio]
+    sa = CardioActivity.find_or_create_by!(name: row[:exercise].capitalize)
+  else
+    sa = StrengthActivity.find_or_create_by!(name: row[:exercise].capitalize) 
+    sa.muscle_groups << mg
+  end 
+
+end

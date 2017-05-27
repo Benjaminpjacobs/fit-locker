@@ -1,16 +1,18 @@
+%div.page-header.text-center#center-header
+  %h3 Workouts
 %div.container
-  %div.row
-    %div.col-md-4.col-md-offset-1
-      %h3 Workouts
+  %div.row.text-center
+    %div.col-md-6.col-md-offset-3
       %div.list-group
       - @workouts.each do |workout|
-        %div.list-group-item
+        %div.list-group-item#workouts
           %h3.list-group-item-heading= link_to "#{workout.name} - #{workout.category.capitalize}", user_workout_path(current_user, workout)
-          %p= workout.date
-          = link_to "Edit", edit_user_workout_path(current_user, workout)
-          = link_to "Delete", user_workout_path(current_user, workout), method: "delete"
+          %p= workout.date.strftime("%A, %B %e %Y")
+          %div.inner-path
+            = link_to "Edit", edit_user_workout_path(current_user, workout)
+            = link_to "Delete", user_workout_path(current_user, workout), method: "delete"
       %br
-      =link_to "Add New Workout", new_user_workout_path(current_user)
+      .path=link_to "Add New Workout", new_user_workout_path(current_user)
 
 
 

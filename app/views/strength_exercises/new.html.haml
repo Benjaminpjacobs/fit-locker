@@ -1,12 +1,7 @@
+%div.page-header.text-center#center-header
+  %h2 Add Exercise
 %div.container
-  %div.row
-    %div.col-md-6.text-center#login
-      %h2 Add Exercise
+  %div.row.text-center
+    %div.col-md-6.col-md-offset-3#login
+      
       =render partial: "form"
-
-      -# .form-horizontal
-      -#   =form_for([current_user, @workout, @strength_exercise]) do |f|
-      -#     %div.form-group  
-      -#       =f.collection_select :strength_activity_id, StrengthActivity.all, :id, :name
-      -#     %div.form-group  
-      -#       %p=f.submit "Add Exercise"

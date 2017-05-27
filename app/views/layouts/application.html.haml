@@ -2,19 +2,17 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title JobTracker
+    %title FitnessLocker
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
     %link(rel="stylesheet" type="text/css" href="stylesheets/appliaction.css")  
     %link(link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous")  
   %body
-    %nav.navbar.navbar-default
+    %nav.navbar.navbar-inverse.navbar-fixed-top
       %div.container-fluid
         %div.navbar-header.navbar-brand 
-          -if current_user
-            Welcome
-            =current_user.first_name  
+          Fitness Locker
 
         %ul.nav.navbar-nav.navbar-right
           %li.dropdown
@@ -31,11 +29,12 @@
           -if current_user
             %li=link_to "Dashboard", user_dashboard_index_path(current_user)
             %li=link_to "Workouts", user_workouts_path(current_user)
+            %li=link_to "Exercises", muscle_group_index_path
             %li=link_to "Logout", login_path, method: :delete
             -if current_user.admin?
               %li=link_to "Users", admin_users_path
-  -if !flash[:success].nil?
-    .container
-      .row.text-center
-        .col-md-4.text-center#flash=flash[:success]
-  = yield
+    -if !flash[:success].nil?
+      .container
+        .row.text-center
+          .col-md-4.text-center#flash=flash[:success]
+    = yield

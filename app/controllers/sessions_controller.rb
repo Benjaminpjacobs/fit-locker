@@ -6,7 +6,7 @@ class SessionsController <ApplicationController
     @user = User.find_by(email: params[:session][:email])
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
-      flash[:success] = "Successfully Logged In"
+      flash[:success] = "Successfully Logged In. Welcome #{@user.first_name.capitalize}!"
       redirect_to user_dashboard_index_path(@user)
     else
       render :new

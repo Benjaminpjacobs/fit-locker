@@ -1,0 +1,26 @@
+%div.page-header.text-center#center-header
+  %h1 
+    =current_user.first_name.capitalize
+    's Dashboard
+%div.container.dashboard.text-center
+  %div.row
+    %div.col-md-3
+      %h3 Number of Days Active:
+  %div.row    
+    %div.col-md-3
+      %h3 Longest Streak:
+  %div.row
+    %div.col-md-3
+      %h3 Total Strength Workouts:
+  %div.row
+    %div.col-md-3
+      %h3 Total Cardio Workouts:
+  %div.row
+    %div.col-md-3
+      %h3 Total Mileage:
+  %div.row
+    %div.col-md-3
+      %h3 Most Popular Activity:
+
+
+-# = render partial: "chart1"

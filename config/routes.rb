@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :muscle_group, only: [:index, :show]
+
   namespace :admin do 
     resources :users
   end

@@ -2,10 +2,10 @@
   =form_for([current_user, @workout, @cardio_exercise]) do |f|
     %div.form-group
       =f.label :duration
-      =f.text_field :duration
+      =f.text_field :duration, placeholder: "00:00:00"
     %div.form-group  
       =f.label :distance
-      =f.text_field :distance
+      =f.text_field :distance, placeholder: "1 mile"
     %div.form-group  
       =f.collection_select :cardio_activity_id, CardioActivity.all, :id, :name
     %div.form-group  

@@ -1,7 +1,8 @@
+%div.page-header.text-center#center-header
+  %h1 All Users:
 %div.container
-  %div.row
-    %div.col-md-4.col-md-offset-1
-      %h3 All Users:
+  %div.row.text-center
+    %div.col-md-6.col-md-offset-3
       %table.table.table-bordered
         %thead
           %tr
@@ -17,6 +18,6 @@
             %td=user.email
             %td
               =user.role
-              #edit=link_to "Edit", edit_admin_user_path(user)
-              #delete=link_to "Delete", admin_user_path(user), method: "delete"
+              .path#edit=link_to "Edit", edit_admin_user_path(user)
+              .path#delete=link_to "Delete", admin_user_path(user), method: "delete"
         
