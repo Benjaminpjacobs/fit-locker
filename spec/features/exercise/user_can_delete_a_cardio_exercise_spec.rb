@@ -5,7 +5,7 @@ RSpec.feature "As a user" do
     reset_session!
   end
   
-  it "can delete an Exercise" do
+  it "can delete a cardio Exercise" do
     
     exercise = create(:cardio_exercise)
     workout = exercise.workout

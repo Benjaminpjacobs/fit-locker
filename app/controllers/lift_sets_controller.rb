@@ -8,8 +8,8 @@ class LiftSetsController < ApplicationController
   end
 
   def create
-    lift_set = @exercise.lift_sets.new(lift_set_params)
-    if lift_set.save
+    @lift_set = @exercise.lift_sets.new(lift_set_params)
+    if @lift_set.save
       flash[:success] = "Set Added"
       redirect_to user_workout_strength_exercise_path(current_user, @workout, @exercise)
     else

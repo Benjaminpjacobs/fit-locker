@@ -1,13 +1,14 @@
 class CardioExercisesController < ApplicationController
   before_action :set_workout
   before_action :set_cardio_exercise, only: [:edit, :update, :destroy]
+
   def new
     @cardio_exercise = CardioExercise.new
   end
 
   def create
-    cardio_exercise = @workout.cardio_exercises.new(cardio_params)
-    if cardio_exercise.save
+    @cardio_exercise = @workout.cardio_exercises.new(cardio_params)
+    if @cardio_exercise.save
       flash[:success] = "Exercise Added"
       redirect_to user_workout_path(@workout.user, @workout)
     else
