@@ -32,9 +32,13 @@
             %li=link_to "Exercises", muscle_group_index_path
             %li=link_to "Logout", login_path, method: :delete
             -if current_user.admin?
-              %li=link_to "Users", admin_users_path
+              %li=link_to "Users", admin_users_path      
     -if !flash[:success].nil?
       .container
         .row.text-center
           .col-md-4.text-center#flash=flash[:success]
+    -if !flash[:concern].nil?
+      .container
+        .row.text-center
+          .col-md-4.text-center#flash=flash[:concern]
     = yield

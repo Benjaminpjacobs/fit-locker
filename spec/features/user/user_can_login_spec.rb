@@ -18,5 +18,14 @@ RSpec.feature "As a user" do
       expect(page).to have_content("Welcome Brad")
       expect(page).to have_content("Successfully Logged In")
     end
+    it "throws an error if fields missing" do 
+      user = User.create!(email: "Brad@example.com", first_name: "Brad", last_name: "Douglas", password: "Password")
+      
+      visit login_path
+      click_button "Login"
+      
+
+      expect(page).to have_content("Missing Username or Password")
+    end
   end
 end

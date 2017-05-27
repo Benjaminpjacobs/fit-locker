@@ -9,6 +9,7 @@ class SessionsController <ApplicationController
       flash[:success] = "Successfully Logged In. Welcome #{@user.first_name.capitalize}!"
       redirect_to user_dashboard_index_path(@user)
     else
+      flash[:concern] = "Missing Username or Password"
       render :new
     end
   end

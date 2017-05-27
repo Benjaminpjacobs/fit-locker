@@ -15,7 +15,7 @@ RSpec.feature "When visiting root" do
     end
   end
 
-  context "if lnot ogged in "do 
+  context "if not logged in "do 
     it "see login page" do 
       user = create(:user)
       
