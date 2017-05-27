@@ -1,7 +1,6 @@
 class CardioExercisesController < ApplicationController
   before_action :set_workout
   before_action :set_cardio_exercise, only: [:edit, :update, :destroy]
-
   def new
     @cardio_exercise = CardioExercise.new
   end
