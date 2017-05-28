@@ -2,9 +2,9 @@
   %h2 Create New User
 %div.container
   %div.row.text-center
-    %div.col-md-6.col-md-offset-3r#login
+    %div.col-md-6.col-md-offset-3
       =render partial: "shared/errors", locals: {target: @user}
-      .form-
+      .form-horizontal#workouts
         =form_for @user do |f|
           %div.form-group
             %p=f.label :email
@@ -20,3 +20,4 @@
             %p=f.text_field :password
           %div.form-group  
             %p=f.submit "Create User"
+        %h4.path=link_to "Back to Login", login_path

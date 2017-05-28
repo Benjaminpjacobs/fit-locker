@@ -65,6 +65,7 @@
 .path {
     margin-top: 5px;
     padding-top: 5px;
+    margin-bottom: 5px;
 }
 
 .inner-path a {
@@ -121,6 +122,11 @@ iframe {
     width: 100%;
     height: 100%;
     margin: 0, auto;
+}
+
+table th,
+td {
+    background-color: whitesmoke;
 }
 
 
