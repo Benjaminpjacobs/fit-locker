@@ -1,6 +1,7 @@
-.form-horizontal
-  =form_for([current_user, @workout, @strength_exercise]) do |f|
-    %div.form-group  
-      =f.collection_select :strength_activity_id, StrengthActivity.all, :id, :name
-    %div.form-group  
-      %p=f.submit
+%div.list-group-item#workouts
+  .form-horizontal
+    =form_for([current_user, @workout, @strength_exercise]) do |f|
+      %div.form-group  
+        =f.collection_select :strength_activity_id, StrengthActivity.all, :id, :name
+      %div.form-group  
+        %p=f.submit

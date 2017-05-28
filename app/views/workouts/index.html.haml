@@ -11,8 +11,8 @@
           %div.inner-path
             = link_to "Edit", edit_user_workout_path(current_user, workout)
             = link_to "Delete", user_workout_path(current_user, workout), method: "delete"
-      %br
-      .path=link_to "Add New Workout", new_user_workout_path(current_user)
+      %div.list-group#workouts
+        .path=link_to "Add New Workout", new_user_workout_path(current_user)
 
 
 

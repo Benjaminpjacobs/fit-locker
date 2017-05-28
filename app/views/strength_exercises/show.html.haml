@@ -4,7 +4,7 @@
   %div.row.text-center
     %div.col-md-6.col-md-offset-3
       -# %h4=@workout.category.capitalize
-      %div.list-group
+      %div.list-group#workouts
         -@strength_exercise.lift_sets.each_with_index do |set, i|
           %h3.list-group-item-heading
             Set

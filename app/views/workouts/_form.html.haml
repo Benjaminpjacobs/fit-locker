@@ -1,14 +1,15 @@
-.form-horizontal
-  =form_for([current_user, @workout]) do |f|
-    %div.form-group
-      =f.label :name
-      =f.text_field :name
-    %div.form-group  
-      =f.label :date
-      =f.date_select :date
-    %div.form-group  
-      =f.select :category, [["Cardio", 0], ["Strength", 1]]
-    %div.form-group  
-      %p=f.submit
+%div.list-group-item#workouts
+  .form-horizontal
+    =form_for([current_user, @workout]) do |f|
+      %div.form-group
+        =f.label :name
+        =f.text_field :name
+      %div.form-group  
+        =f.label :date
+        =f.date_select :date
+      %div.form-group  
+        =f.select :category, [["Cardio", 0], ["Strength", 1]]
+      %div.form-group  
+        %p=f.submit
 
   

@@ -4,45 +4,45 @@
 %div.container
   %div.row.text-center
     %div.col-md-6.col-md-offset-3
-
-      %div.list-group
       -if @workout.cardio?
         -@workout.cardio_exercises.each do |exercise|
-          %h3.list-group-item-heading=exercise.cardio_activity.name
-          .list-group-item-text
-            %p
-              %strong Duration:
-              =exercise.duration
-            %p  
-              %strong Distance:
-              =exercise.distance
-              miles
-          = link_to "Edit",  edit_user_workout_cardio_exercise_path(current_user, @workout, exercise)
-          = link_to "Delete", user_workout_cardio_exercise_path(current_user, @workout, exercise), method: "delete"
-
-        %p=link_to "Add Exercise", new_user_workout_cardio_exercise_path(current_user, @workout)
-        %p=link_to "Browse Exercises", user_workout_cardio_activity_index_path(current_user, @workout)
+          %div.list-group#workouts
+            %h3.list-group-item-heading=exercise.cardio_activity.name
+            .list-group-item-text
+              %p
+                %strong Duration:
+                =exercise.duration
+              %p  
+                %strong Distance:
+                =exercise.distance
+                miles
+            = link_to "Edit",  edit_user_workout_cardio_exercise_path(current_user, @workout, exercise)
+            = link_to "Delete", user_workout_cardio_exercise_path(current_user, @workout, exercise), method: "delete"
+        %div.list-group#workouts
+          %p=link_to "Add Exercise", new_user_workout_cardio_exercise_path(current_user, @workout)
+          %p=link_to "Browse Exercises", user_workout_cardio_activity_index_path(current_user, @workout)
 
       -else
         -@workout.strength_exercises.each do |exercise|
-          %h3.list-group-item-heading
-            =link_to exercise.strength_activity.name, user_workout_strength_exercise_path(current_user, @workout, exercise)
-          .list-group-item-text
-            -exercise.lift_sets.each_with_index do |lift_set, i|
-              %h4.list-group-item-heading
-                Set 
-                =(i+1)
-              .list-group-item-text
-                %p 
-                  %strong Weight:
-                  =lift_set.weight
-                  lbs
-                %p 
-                  %strong Reps:
-                  =lift_set.reps
-          %div.inner-path       
-            = link_to "Edit",  edit_user_workout_strength_exercise_path(current_user, @workout, exercise)
-            = link_to "Delete", user_workout_strength_exercise_path(current_user, @workout, exercise), method: "delete"
-
-        %p=link_to "Add Exercise", new_user_workout_strength_exercise_path(current_user, @workout)
-        %p=link_to "Browse Exercises", user_workout_muscle_group_index_path(current_user, @workout)
+          %div.list-group#workouts
+            %h3.list-group-item-heading
+              =link_to exercise.strength_activity.name, user_workout_strength_exercise_path(current_user, @workout, exercise)
+            .list-group-item-text
+              -exercise.lift_sets.each_with_index do |lift_set, i|
+                %h4.list-group-item-heading
+                  Set 
+                  =(i+1)
+                .list-group-item-text
+                  %p 
+                    %strong Weight:
+                    =lift_set.weight
+                    lbs
+                  %p 
+                    %strong Reps:
+                    =lift_set.reps
+            %div.inner-path       
+              = link_to "Edit",  edit_user_workout_strength_exercise_path(current_user, @workout, exercise)
+              = link_to "Delete", user_workout_strength_exercise_path(current_user, @workout, exercise), method: "delete"
+        %div.list-group#workouts
+          %p=link_to "Add Exercise", new_user_workout_strength_exercise_path(current_user, @workout)
+          %p=link_to "Browse Exercises", user_workout_muscle_group_index_path(current_user, @workout)

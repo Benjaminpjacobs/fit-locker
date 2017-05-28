@@ -27,6 +27,15 @@
     border-left: .5px solid white;
     border-right: .5px solid whitesmoke;
     border-radius: 5px;
+    background: rgba(255, 255, 255, .7);
+}
+
+#flash-error {
+    margin: 50px, auto;
+    padding: 20px;
+    display: inline-block;
+    border-radius: 5px;
+    background: rgba(255, 150, 150, .7);
     color: white;
 }
 
@@ -62,13 +71,24 @@
     margin-right: 10px
 }
 
-body {
+div a {
+    text-decoration: none;
+    color: black;
+}
+
+div a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+#body {
     padding-top: 70px;
     background-image: url('/assets/jan-laugesen-186574.jpg');
-    background-size: 100% auto;
+    /*color: whitesmoke;*/
     background-repeat: no-repeat;
+    background-position: center center;
     background-attachment: fixed;
-    color: whitesmoke;
+    background-size: cover;
 }
 
 #center-header {
@@ -76,12 +96,13 @@ body {
     margin: auto;
     max-width: 30%;
     margin-bottom: 10px;
-    background: rgba(0, 0, 0, .1)
+    /*background: rgba(0, 0, 0, .1)*/
 }
 
 .dashboard {
     background: rgba(255, 255, 255, .7);
-    border-radius: 5px
+    border-radius: 5px;
+    max-width: 50%;
 }
 
 #workouts {
@@ -91,9 +112,9 @@ body {
 }
 
 #map-canvas {
-    margin: 0, auto;
-    height: 500px;
-    width: 500px;
+    margin: 0 auto;
+    height: 650px;
+    width: 650px;
 }
 
 iframe {
