@@ -18,3 +18,10 @@ This app is built with HAML, CSS, Ruby 2.4.1, Postgresql and Rails 5.1. It also 
 
 To run this app:
 
+* clone this repo.
+* ```cd``` into it
+* ```bundle install``` 
+* ```rake db:setup```  
+* ```rails server```
+* go to ```localhost:30000``` and track some workouts!
+
