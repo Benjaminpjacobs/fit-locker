@@ -1,5 +1,7 @@
 # Fit-Locker
 
+![Alt text](https://raw.github.com/Benjaminpjacobs/fit-locker/master/screen-shots/fit-locker.png?raw=true "Optional Title")
+
 ## Description
 
 A an exploration of rails CRUD functionality through the lens of a workout tracking application. You can sign in or create an account and then store a log of fitness workouts. You can create workouts of both the cardiovascualr and strength variety. These will give you different options of what types of exercises to add and how to further track weight, set and reps for strength exercises.
