@@ -1,6 +1,6 @@
 # Fit-Locker
 
-![Alt text](https://raw.github.com/Benjaminpjacobs/fit-locker/blob/master/screen-shots/fit-lock.png?raw=true "Optional Title")
+![Alt text](https://raw.github.com/Benjaminpjacobs/fit-locker/master/screen-shots/fit-lock.png?raw=true "Optional Title")
 
 ## Description
 
