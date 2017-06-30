@@ -1,24 +1,20 @@
-# README
+# Fit-Locker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
 
-Things you may want to cover:
+A an exploration of rails CRUD functionality through the lens of a workout tracking application. You can sign in or create an account and then store a log of fitness workouts. You can create workouts of both the cardiovascualr and strength variety. These will give you different options of what types of exercises to add and how to further track weight, set and reps for strength exercises.
 
-* Ruby version
+If you are unsure what a specific exercise is, it will take you to a google search of a demonstrations.
 
-* System dependencies
+If you need to find a gym, the 'Find Gym Near Me" tab incorporates the google maps api to find a fitness center near your IP location.
 
-* Configuration
+If you are logged in as an admin you can see all active users and create other admins from users that exists. You can also delete users.
 
-* Database creation
+## Stack
 
-* Database initialization
+This app is built with HAML, CSS, Ruby 2.4.1, Postgresql and Rails 5.1. It also utilizes the google maps API.
 
-* How to run the test suite
+## Local Install
 
-* Services (job queues, cache servers, search engines, etc.)
+To run this app:
 
-* Deployment instructions
-
-* ...
